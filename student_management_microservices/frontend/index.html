@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>🎓 Student Management</h1>
+    <p class="subtitle">Student Registration + Fee Payment</p>
+
+    <form id="studentForm">
+        <label>Student Name</label>
+        <input id="name" type="text" placeholder="Enter student name" required>
+
+        <label>Student Phone</label>
+        <input id="phone" type="tel" placeholder="Enter phone number" required>
+
+        <label>Course</label>
+        <select id="course">
+            <option value="MSc IT">MSc IT</option>
+            <option value="MBA">MBA</option>
+            <option value="BBA">BBA</option>
+            <option value="BCA">BCA</option>
+        </select>
+
+        <label>Semester</label>
+        <select id="semester">
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+        </select>
+
+        <label>Fee Amount (₹)</label>
+        <input id="amount" type="number" min="1" placeholder="Enter fee amount" required>
+
+        <label>Payment Method</label>
+        <select id="paymentMethod">
+            <option value="UPI">UPI</option>
+            <option value="Card">Card</option>
+            <option value="Cash">Cash</option>
+        </select>
+
+        <button type="submit">Register Student & Pay Fee</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+services:
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: student-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - student-service
+
+  student-service:
+    build:
+      context: ./student-service
+    container_name: student-service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - fee-service
+
+  fee-service:
+    build:
+      context: ./fee-service
+    container_name: fee-service
+    ports:
+      - "5002:5002"
