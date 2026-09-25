@@ -11,21 +11,14 @@ pipeline {
 
         stage('Test Docker') {
             steps {
-
-                // Check Docker location
                 bat 'where docker'
-
-                // Check Docker version
                 bat 'docker --version'
 
-                // Add Docker CLI plugins path for this Jenkins step
-                bat 'set PATH=C:\\Users\\Komal\\.docker\\cli-plugins;%PATH% && docker compose version'
+                bat 'dir C:\\Users\\Komal\\.docker\\cli-plugins\\docker-compose.exe'
 
-                // Test Docker Engine
+                bat 'C:\\Users\\Komal\\.docker\\cli-plugins\\docker-compose.exe version'
+
                 bat 'docker info'
-
-                // Test Docker Compose again
-                bat 'set PATH=C:\\Users\\Komal\\.docker\\cli-plugins;%PATH% && docker compose version'
             }
         }
 
