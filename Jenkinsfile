@@ -2,43 +2,30 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Build Docker Images') {
+        stage('Test Docker') {
             steps {
-                bat 'docker compose build'
+                bat 'where docker'
+                bat 'docker --version'
+                bat 'docker compose version'
             }
         }
 
-        stage('Stop Old Containers') {
-            steps {
-                bat 'docker compose down'
-            }
-        }
-
-        stage('Deploy Application') {
-            steps {
-                bat 'docker compose up -d'
-            }
-        }
-
-        stage('Check Containers') {
-            steps {
-                bat 'docker compose ps'
-            }
-        }
     }
 
     post {
         success {
-            echo 'Student Management Application deployed successfully!'
+            echo 'Docker is working from Jenkins!'
         }
+
         failure {
-            echo 'Pipeline failed. Check the Jenkins console output.'
+            echo 'Docker test failed.'
         }
     }
 }
